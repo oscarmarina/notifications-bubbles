@@ -1,0 +1,43 @@
+<dom-module id="notifications-bubbles-shared-styles">
+  <template>
+    <style>
+      :host([motion]) {
+        -webkit-animation: frombot 270ms cubic-bezier(0.4, 0, 0.2, 1);
+                animation: frombot 270ms cubic-bezier(0.4, 0, 0.2, 1); }
+        :host([motion]) .notification__item {
+          -webkit-transform: translateY(200%);
+                  transform: translateY(200%);
+          -webkit-animation: toup 250ms cubic-bezier(0.4, 0, 0.2, 1) both;
+                  animation: toup 250ms cubic-bezier(0.4, 0, 0.2, 1) both; }
+        :host([motion]) .notification__item--one {
+          -webkit-animation-delay: 270ms;
+                  animation-delay: 270ms; }
+        :host([motion]) .notification__item--two {
+          -webkit-animation-delay: 370ms;
+                  animation-delay: 370ms; }
+        :host([motion]) .notification__item--three {
+          -webkit-animation-delay: 470ms;
+                  animation-delay: 470ms; }
+
+      @-webkit-keyframes frombot {
+        from {
+          -webkit-transform: scale(.88);
+                  transform: scale(.88); } }
+
+      @keyframes frombot {
+        from {
+          -webkit-transform: scale(.88);
+                  transform: scale(.88); } }
+
+      @-webkit-keyframes toup {
+        to {
+          -webkit-transform: translateY(0);
+                  transform: translateY(0); } }
+
+      @keyframes toup {
+        to {
+          -webkit-transform: translateY(0);
+                  transform: translateY(0); } }
+    </style>
+  </template>
+</dom-module>

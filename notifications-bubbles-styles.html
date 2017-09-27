@@ -1,0 +1,76 @@
+<dom-module id="notifications-bubbles-styles"><template><style>
+*,
+*:before,
+*:after {
+  box-sizing: inherit; }
+
+.visuallyhidden {
+  border: 0;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  width: 1px;
+  white-space: nowrap; }
+
+:host {
+  will-change: transform;
+  font-family: var(--cells-fontDefault, sans-serif);
+  position: relative;
+  display: block;
+  display: -webkit-inline-flex;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-align-items: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: var(--notifications-bubbles-color, #fff);
+  background-color: var(--notifications-bubbles-background-color, #fa661c);
+  border: 1px solid var(--notifications-bubbles-border-color, rgba(195, 78, 19, 0.8));
+  border-radius: var(--notifications-bubbles-border-radius, 3px);
+  @apply --notifications-bubbles; }
+  :host:after {
+    content: "";
+    position: absolute;
+    display: block;
+    width: 1em;
+    height: 1em;
+    bottom: 0;
+    left: 50%;
+    -webkit-transform: translate3d(-50%, 50%, 0) rotate(45deg);
+            transform: translate3d(-50%, 50%, 0) rotate(45deg);
+    background-image: linear-gradient(-45deg, var(--notifications-bubbles-background-color, #fa661c) 50%, transparent 0%);
+    border: 1px solid var(--notifications-bubbles-border-color, rgba(195, 78, 19, 0.8));
+    border-top: none;
+    border-left: none;
+    @apply --notifications-bubbles-after; }
+
+:host([hidden]) {
+  display: none; }
+
+.notification {
+  list-style: none;
+  margin: 0;
+  padding: .33em .66em;
+  overflow: hidden; }
+
+.notification,
+.notification__item {
+  display: inherit;
+  -webkit-align-items: inherit;
+      -ms-flex-align: inherit;
+          align-items: inherit; }
+
+.notification__item {
+  will-change: transform;
+  @apply --notifications-bubbles-notification__item; }
+  .notification__item + .notification__item {
+    margin-left: 1rem; }
+
+iron-icon {
+  margin-right: .150rem;
+  @apply --notifications-bubbles-iron-icon; }
+
+</style></template></dom-module>
