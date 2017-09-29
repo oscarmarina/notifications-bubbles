@@ -13,7 +13,7 @@ generar las variables y mixins que luego usaremos para poder cambiar su aspecto.
   font-family: var(--fontDefault, sans-serif);
   position: relative;
   display: block;
-  @apply (--notifications-bubbles); }
+  @apply --notifications-bubbles; }
 
 :host([hidden]) {
   display: none; }

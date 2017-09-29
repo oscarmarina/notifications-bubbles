@@ -1,0 +1,130 @@
+notifications-bubbles{
+  --notifications-bubbles-notification-border-color : rebeccapurple;
+  --notifications-bubbles-notification : {
+    box-shadow:0 0 16px 4px rgba(0,0,0,.5);
+  }
+}
+
+<dom-module id="notifications-bubbles">
+  <template>
+    <style>
+      :host {
+        color:black;
+        will-change: transform;
+        font-family: var(--fontDefault, sans-serif);
+        position: relative;
+        display: block;
+        color: var(--notifications-bubbles-color, #fff);
+        background-color: var(--notifications-bubbles-background-color, #fa661c);
+        border: 1px solid var(--notifications-bubbles-border-color, rgba(195, 78, 19, .8));
+        @apply --notifications-bubbles;
+      }
+
+      :host([hidden]) {
+        display: none;
+      }
+    </style>
+    <slot></slot>
+  </template>
+</dom-module>
+
+
+<dom-module id="parent-component">
+  <template>
+    <style>
+      notifications-bubbles {
+        color:orange;
+      }
+      .mark {
+        color:indianred;
+      }
+    </style>
+    <notifications-bubbles></notifications-bubbles>
+    <notifications-bubbles class="mark"></notifications-bubbles>
+    <slot></slot>
+  </template>
+</dom-module>
+
+
+
+<custom-style>
+  <style is="custom-style">
+    notifications-bubbles{
+      --notifications-bubbles-notification-border-color : rebeccapurple;
+      --notifications-bubbles-notification : {
+        box-shadow:0 0 16px 4px rgba(0,0,0,.5);
+      }
+    }
+  </style>
+</custom-style>
+
+
+
+<dom-module id="notifications-bubbles-shared-styles">
+  <template>
+    <style>
+      :host(.my-custom-class) {
+        background-color: var(--some-theme-color-var);
+      }
+    </style>
+  </template>
+</dom-module>
+
+
+<dom-module id="notifications-bubbles">
+  <template>
+    <style include="notifications-bubbles-shared-styles">
+      <!-- Any additional styles go here -->
+    </style>
+    <!-- The rest of your element template goes here -->
+  </template>
+</dom-module>
+
+
+
+
+<dom-module id="component-x">
+  <template>
+    <style>
+      :host {
+        --mixin-in-component-head: {
+          padding: 0;
+          margin: 4px;
+          @apply --extend-mixin-in-component-head;
+        }
+    }
+    </style>
+    <component-head></component-head>
+  </template>
+</dom-module>
+
+
+<dom-module id="component-head">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+      .head{
+        color:var(--component-head-head-color, #000);
+        @apply --mixin-in-component-head;
+      }
+    </style>
+  <header class="head">
+    <h1>Component Head</h1>
+  </header>
+  </template>
+</dom-module>
+
+
+
+<custom-style>
+  <style is="custom-style">
+    html {
+      --extend-mixin-in-component-head:{
+        background-color:grey;
+        --component-head-head-color: #fff;
+      }
+    }
+  </style>
+</custom-style>

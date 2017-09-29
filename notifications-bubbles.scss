@@ -48,12 +48,29 @@
 :host([hidden]) {
   display: none;
 }
-
+::slotted(*) {
+  font-size: .80rem;
+  display: flex;
+  position: absolute;
+  height: 1.5rem;
+  width: 1.5rem;
+  top: -1.25em;
+  right: -1.25em;
+  padding: .25em;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, .25); 
+  background-color: var(--notifications-bubbles-slot, #b9344b);
+  box-sizing: border-box;
+  justify-content: center;
+  align-items: center;
+}
 .notification {
   list-style: none;
   margin: 0;
   padding: .33em .66em;
   overflow: hidden;
+  border: 1px solid var(--notifications-bubbles-notification-border-color, transparent);
+  @apply --notifications-bubbles-notification;
 }
 
 .notification,
